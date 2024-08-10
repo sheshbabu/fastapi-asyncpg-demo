@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
+from src.commons import migrate
 from src.commons.postgres import database
 from src.users.users_route import users_router
 
@@ -9,6 +10,7 @@ from src.users.users_route import users_router
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await database.connect()
+    await migrate.apply_pending_migrations()
     yield
     await database.disconnect()
 
