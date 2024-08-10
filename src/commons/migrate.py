@@ -11,7 +11,6 @@ async def create_table():
     """
     async with database.pool.acquire() as connection:
         await connection.execute(query)
-        await connection.close()
 
 async def get_pending_migrations():
     # Get all migration files
