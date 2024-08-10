@@ -4,3 +4,6 @@ init:
 
 dev:
 	venv/bin/python -m src.main
+
+test:
+	venv/bin/pytest -v

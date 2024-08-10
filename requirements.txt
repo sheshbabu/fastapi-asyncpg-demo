@@ -2,3 +2,6 @@ asyncpg
 fastapi[standard]
 uvicorn
 pydantic
+pytest
+pytest-asyncio
+httpx
